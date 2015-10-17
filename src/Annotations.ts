@@ -1,8 +1,8 @@
-import {defaultMetadataStorage} from "./MetadataRegistry";
+import {defaultMetadataRegistry} from "./MetadataRegistry";
 
 export function EventSubscriber() {
     return function (object: Function) {
-        defaultMetadataStorage.addSubscriberMetadata({
+        defaultMetadataRegistry.addSubscriberMetadata({
             object: object
         });
     }
@@ -19,7 +19,7 @@ export function On(eventNameOrNames: string|string[]): Function {
             eventNames = [<string> eventNameOrNames];
         }
 
-        defaultMetadataStorage.addOnMetadata({
+        defaultMetadataRegistry.addOnMetadata({
             object: object,
             methodName: methodName,
             eventNames: eventNames

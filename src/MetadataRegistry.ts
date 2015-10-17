@@ -34,16 +34,20 @@ export class MetadataRegistry {
      */
     get collectEventsHandlers(): EventsHandler[] {
         return this._collectEventsHandlers
-            .filter(subscriber => subscriber.hasOwnProperty('subscribedTo'))
-            .map(subscriber => {
+            .reduce((handlers: EventsHandler[], subscriber: SubscriberMetadata) => {
                 let cls: any = subscriber.object;
                 let instance: EventSubscriberInterface = this._container ? this._container.get(subscriber.object) : new cls();
-                return instance.subscribedTo();
-            }).concat(this._onMetadatas.reduce((handlers: any[], metadata: OnMetadata) => {
-                return handlers.concat(metadata.eventNames.map(eventName => {
-                    return { [eventName]: (<any> metadata.object)[metadata.methodName] };
-                }));
-            }, []));
+                if (subscriber.hasOwnProperty('subscribedTo'))
+                    handlers.push(instance.subscribedTo());
+
+                this._onMetadatas
+                    .filter(metadata => metadata.object.constructor === subscriber.object)
+                    .forEach(metadata => metadata.eventNames.map(eventName => {
+                        handlers.push({ [eventName]: (data: any) => (<any> instance)[metadata.methodName](data) });
+                    }));
+
+                return handlers;
+            }, []);
     }
 
     // -------------------------------------------------------------------------
@@ -63,4 +67,4 @@ export class MetadataRegistry {
 /**
  * Default action registry is used as singleton and can be used to storage all metadatas.
  */
-export let defaultMetadataStorage = new MetadataRegistry();
+export let defaultMetadataRegistry = new MetadataRegistry();

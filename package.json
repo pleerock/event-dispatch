@@ -1,6 +1,6 @@
 {
   "name": "t-event-dispatcher",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Dispatching and listening for application events in Typescript",
   "license": "Apache-2.0",
   "readmeFilename": "README.md",

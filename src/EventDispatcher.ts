@@ -1,6 +1,6 @@
 import {EventsHandler} from "./EventsHandler";
 import {EventSubscriberInterface} from "./EventSubscriberInterface";
-import {defaultMetadataStorage} from "./MetadataRegistry";
+import {defaultMetadataRegistry} from "./MetadataRegistry";
 
 export class EventDispatcher {
 
@@ -53,7 +53,7 @@ export class EventDispatcher {
             this.handlers
                 .filter(handler => handler.hasOwnProperty(eventName))
                 .forEach(handler => handler[eventName](data));
-            defaultMetadataStorage
+            defaultMetadataRegistry
                 .collectEventsHandlers
                 .filter(handler => handler.hasOwnProperty(eventName))
                 .forEach(handler => handler[eventName](data));
