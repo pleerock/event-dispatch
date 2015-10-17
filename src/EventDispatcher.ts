@@ -39,9 +39,9 @@ export class EventDispatcher {
         });
     }
 
-    dispatch(eventName: string, data: any): void;
-    dispatch(eventNames: string[], data: any): void;
-    dispatch(eventNameOrNames: string|string[], data: any) {
+    dispatch(eventName: string, data?: any): void;
+    dispatch(eventNames: string[], data?: any): void;
+    dispatch(eventNameOrNames: string|string[], data?: any) {
         let eventNames: string[] = [];
         if (eventNameOrNames instanceof Array) {
             eventNames = <string[]> eventNameOrNames;
