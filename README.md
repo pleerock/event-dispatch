@@ -34,7 +34,7 @@ require('./subscriber/UserEventSubscriber');
 
 let eventDispatcher = new EventDispatcher();
 
-eventDispatcher.dispatch('onUserCreate', new User('Johny));
+eventDispatcher.dispatch('onUserCreate', new User('Johny'));
 eventDispatcher.dispatch('onStatusUpdate', 'hello world');
 
 ```
