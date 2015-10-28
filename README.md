@@ -7,7 +7,7 @@ Allows to register subscribers and dispatch events across the application.
 Simply create a class and put annotations on its methods:
 
 ```typescript
-import {EventSubscriber, On} from "t-event-dispatcher/Annotations";
+import {EventSubscriber, On} from "event-dispatcher.ts/Annotations";
 
 @EventSubscriber()
 export class UserEventSubscriber {
@@ -27,7 +27,7 @@ export class UserEventSubscriber {
 Then use EventDispatcher class to dispatch events:
 
 ```typescript
-import {EventDispatcher} from "t-event-dispatcher/EventDispatcher";
+import {EventDispatcher} from "event-dispatcher.ts/EventDispatcher";
 
 require('./subscriber/UserEventSubscriber');
 // you can also require the whole directory using: Utils.requireAll([__dirname + '/subscriber']);
