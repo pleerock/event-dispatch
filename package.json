@@ -1,6 +1,6 @@
 {
   "name": "event-dispatcher.ts",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Dispatching and listening for application events in Typescript",
   "license": "Apache-2.0",
   "readmeFilename": "README.md",
@@ -20,9 +20,8 @@
     "typescript",
     "event-dispatching"
   ],
-  "typings": "./event-dispatcher.ts.d.ts",
   "typescript": {
-    "definition": "event-dispatcher.ts.d.ts"
+    "definition": "index.d.ts"
   },
   "dependencies": {
     "reflect-metadata": "0.1.2",
@@ -32,7 +31,7 @@
   "devDependencies": {
     "body-parser": "^1.12.3",
     "del": "^2.0.2",
-    "dts-generator": "^1.5.0",
+    "dts-generator": "^1.6.2",
     "gulp": "^3.9.0",
     "gulp-plumber": "^1.0.1",
     "gulp-shell": "^0.5.0",
@@ -40,8 +39,5 @@
     "run-sequence": "^1.1.4",
     "tsd": "^0.6.4",
     "typescript": "^1.6.2"
-  },
-  "scripts": {
-    "postversion": "./node_modules/.bin/gulp package"
   }
 }

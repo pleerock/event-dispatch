@@ -6,7 +6,7 @@ var ts = require('gulp-typescript');
 var shell = require('gulp-shell');
 
 gulp.task('clean', function (cb) {
-    return del(['./built/**'], cb);
+    return del(['./build/**'], cb);
 });
 
 gulp.task('compile', function() {
@@ -17,7 +17,7 @@ gulp.task('compile', function() {
     return tsProject.src()
         .pipe(plumber())
         .pipe(ts(tsProject))
-        .js.pipe(gulp.dest('./built/es5'));
+        .js.pipe(gulp.dest('./build/es5'));
 });
 
 gulp.task('tsd', function() {
@@ -30,13 +30,13 @@ gulp.task('tsd', function() {
 });
 
 gulp.task('build-package-copy-src', function() {
-    return gulp.src('./built/es5/src/**/*')
-        .pipe(gulp.dest('./built/package'));
+    return gulp.src('./build/es5/src/**/*')
+        .pipe(gulp.dest('./build/package'));
 });
 
 gulp.task('build-package-copy-files', function() {
     return gulp.src(['./package.json', './README.md'])
-        .pipe(gulp.dest('./built/package'));
+        .pipe(gulp.dest('./build/package'));
 });
 
 gulp.task('build-package-generate-dts', function () {
@@ -55,21 +55,21 @@ gulp.task('build-package-generate-dts', function () {
         return files;
     }
 
-    var dtsGenerator = require('dts-generator');
+    var dtsGenerator = require('dts-generator').default;
     var name = require('./package.json').name;
     var files = getFiles('./src');
-    dtsGenerator.generate({
+    dtsGenerator({
         name: name,
         baseDir: './src',
         files: files,
-        out: './built/package/' + name + '.d.ts'
+        out: './build/package/index.d.ts'
     });
 });
 
 gulp.task('run-sample1', function() {
     return gulp.src('*.js', { read: false })
         .pipe(shell([
-            'node ./built/es5/sample/sample1-simple-usage/app.js'
+            'node ./build/es5/sample/sample1-simple-usage/app.js'
         ]));
 });
 
@@ -80,7 +80,7 @@ gulp.task('run:sample1', function (cb) {
 gulp.task('run-sample2', function() {
     return gulp.src('*.js', { read: false })
         .pipe(shell([
-            'node ./built/es5/sample/sample2-using-subscribers/app.js'
+            'node ./build/es5/sample/sample2-using-subscribers/app.js'
         ]));
 });
 
@@ -91,7 +91,7 @@ gulp.task('run:sample2', function (cb) {
 gulp.task('run-sample3', function() {
     return gulp.src('*.js', { read: false })
         .pipe(shell([
-            'node ./built/es5/sample/sample3-using-annotations/app.js'
+            'node ./build/es5/sample/sample3-using-annotations/app.js'
         ]));
 });
 
