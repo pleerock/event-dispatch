@@ -3,9 +3,10 @@ import {defaultMetadataRegistry} from "./MetadataRegistry";
 export function EventSubscriber() {
     return function (object: Function) {
         defaultMetadataRegistry.addSubscriberMetadata({
-            object: object
+            object: object,
+            instance: undefined
         });
-    }
+    };
 }
 
 export function On(eventName: string): Function;
@@ -24,5 +25,5 @@ export function On(eventNameOrNames: string|string[]): Function {
             methodName: methodName,
             eventNames: eventNames
         });
-    }
+    };
 }

@@ -4,14 +4,14 @@ import {User} from "./../User";
 @EventSubscriber()
 export class UserEventSubscriber {
 
-    @On('onUserCreate')
+    @On("onUserCreate")
     onUserCreate(user: User) {
-        console.log('User ' + user.name + ' created!')
+        console.log("User " + user.name + " created!");
     }
 
-    @On('onUserUpdate')
+    @On("onUserUpdate")
     updateData(user: User) {
-        console.log('User ' + user.name + ' updated!')
+        console.log("User " + user.name + " updated!");
     }
 
 }

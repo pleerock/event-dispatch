@@ -14,11 +14,11 @@ export class UserEventSubscriber implements EventSubscriberInterface {
     }
 
     private onUserCreate(user: User) {
-        console.log('User ' + user.name + ' created!')
+        console.log("User " + user.name + " created!");
     }
 
     private updateData(user: User) {
-        console.log('User ' + user.name + ' updated!')
+        console.log("User " + user.name + " updated!");
     }
 
 }

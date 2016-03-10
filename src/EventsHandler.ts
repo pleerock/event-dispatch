@@ -1,3 +1,3 @@
 export interface EventsHandler {
-    [eventName: string]: (data:any) => void;
+    [eventName: string]: (data: any) => void;
 }

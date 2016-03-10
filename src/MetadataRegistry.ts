@@ -1,4 +1,3 @@
-import {Utils} from './Utils';
 import {SubscriberMetadata} from "./SubscriberMetadata";
 import {EventSubscriberInterface} from "./EventSubscriberInterface";
 import {OnMetadata} from "./OnMetadata";
@@ -35,9 +34,8 @@ export class MetadataRegistry {
     get collectEventsHandlers(): EventsHandler[] {
         return this._collectEventsHandlers
             .reduce((handlers: EventsHandler[], subscriber: SubscriberMetadata) => {
-                let cls: any = subscriber.object;
-                let instance: EventSubscriberInterface = this._container ? this._container.get(subscriber.object) : new cls();
-                if (subscriber.hasOwnProperty('subscribedTo'))
+                let instance: EventSubscriberInterface = this.instantiateClass(subscriber);
+                if (instance.subscribedTo)
                     handlers.push(instance.subscribedTo());
 
                 this._onMetadatas
@@ -60,6 +58,19 @@ export class MetadataRegistry {
 
     addOnMetadata(metadata: OnMetadata) {
         this._onMetadatas.push(metadata);
+    }
+
+    // -------------------------------------------------------------------------
+    // Private Methods
+    // -------------------------------------------------------------------------
+
+    private instantiateClass(subscriber: SubscriberMetadata) {
+        if (!subscriber.instance) {
+            const cls: any = subscriber.object;
+            subscriber.instance = this._container ? this._container.get(cls) : new cls();
+        }
+
+        return subscriber.instance;
     }
 
 }
