@@ -1,4 +1,4 @@
-import {EventDispatcher} from "../../src/EventDispatcher";
+import {EventDispatcher} from "../../src/event-dispatch";
 
 interface User {
     name: string;

@@ -1,7 +1,7 @@
 {
-  "name": "event-dispatcher.ts",
+  "name": "event-dispatch",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Dispatching and listening for application events in Typescript",
   "license": "Apache-2.0",
   "readmeFilename": "README.md",
@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pleerock/event-dispatcher.ts.git"
+    "url": "https://github.com/pleerock/event-dispatch.git"
   },
   "bugs": {
-    "url": "https://github.com/pleerock/event-dispatcher.ts/issues"
+    "url": "https://github.com/pleerock/event-dispatch/issues"
   },
   "tags": [
     "typescript",

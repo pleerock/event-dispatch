@@ -1,5 +1,4 @@
 import {EventsHandler} from "./EventsHandler";
-import {EventSubscriberInterface} from "./EventSubscriberInterface";
 import {defaultMetadataRegistry} from "./MetadataRegistry";
 
 export class EventDispatcher {

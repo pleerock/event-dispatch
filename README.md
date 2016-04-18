@@ -1,4 +1,4 @@
-# event-dispatcher.ts
+# event-dispatch
 
 Allows to register subscribers and dispatch events across the application.
 
@@ -6,7 +6,7 @@ Allows to register subscribers and dispatch events across the application.
 
 1. Install module:
 
-    `npm install event-dispatcher.ts --save`
+    `npm install event-dispatch --save`
 
 2. Use [typings](https://github.com/typings/typings) to install all required definition dependencies.
 
@@ -24,7 +24,7 @@ Allows to register subscribers and dispatch events across the application.
 Simply create a class and put annotations on its methods:
 
 ```typescript
-import {EventSubscriber, On} from "event-dispatcher.ts/Decorators";
+import {EventSubscriber, On} from "event-dispatch/event-dispatch";
 
 @EventSubscriber()
 export class UserEventSubscriber {
@@ -44,7 +44,7 @@ export class UserEventSubscriber {
 Then use EventDispatcher class to dispatch events:
 
 ```typescript
-import {EventDispatcher} from "event-dispatcher.ts/EventDispatcher";
+import {EventDispatcher} from "event-dispatch/event-dispatch";
 
 // note that all your subscribers must be imported somewhere in the app, so they are getting registered
 // on node you can also require the whole directory using [require all](https://www.npmjs.com/package/require-all) package
@@ -58,7 +58,7 @@ eventDispatcher.dispatch("onStatusUpdate", "hello world");
 
 ## Samples
 
-Take a look on samples in [./sample](https://github.com/pleerock/event-dispatcher.ts/tree/master/sample) for more
+Take a look on samples in [./sample](https://github.com/pleerock/event-dispatch/tree/master/sample) for more
 examples of usages.
 
 ## Todos

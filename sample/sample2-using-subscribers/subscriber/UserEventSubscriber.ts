@@ -1,5 +1,5 @@
 import {EventSubscriberInterface} from "../../../src/EventSubscriberInterface";
-import {EventSubscriber} from "../../../src/Decorators";
+import {EventSubscriber} from "../../../src/decorators";
 import {EventsHandler} from "../../../src/EventsHandler";
 import {User} from "./../User";
 

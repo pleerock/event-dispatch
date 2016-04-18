@@ -1,4 +1,4 @@
-import {EventSubscriber, On} from "../../../src/Decorators";
+import {EventSubscriber, On} from "../../../src/decorators";
 import {User} from "./../User";
 
 @EventSubscriber()

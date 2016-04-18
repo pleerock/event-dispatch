@@ -1,4 +1,4 @@
-import {EventDispatcher} from "../../src/EventDispatcher";
+import {EventDispatcher} from "../../src/event-dispatch";
 import {User} from "./User";
 
 import "./subscriber/UserEventSubscriber";
