@@ -24,7 +24,7 @@ Allows to register subscribers and dispatch events across the application.
 Simply create a class and put annotations on its methods:
 
 ```typescript
-import {EventSubscriber, On} from "event-dispatch/event-dispatch";
+import {EventSubscriber, On} from "event-dispatch";
 
 @EventSubscriber()
 export class UserEventSubscriber {
@@ -44,7 +44,7 @@ export class UserEventSubscriber {
 Then use EventDispatcher class to dispatch events:
 
 ```typescript
-import {EventDispatcher} from "event-dispatch/event-dispatch";
+import {EventDispatcher} from "event-dispatch";
 
 // note that all your subscribers must be imported somewhere in the app, so they are getting registered
 // on node you can also require the whole directory using [require all](https://www.npmjs.com/package/require-all) package

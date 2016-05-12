@@ -1,4 +1,5 @@
-import {EventDispatcher} from "../../src/event-dispatch";
+import "es6-shim";
+import {EventDispatcher} from "../../src/index";
 
 interface User {
     name: string;
